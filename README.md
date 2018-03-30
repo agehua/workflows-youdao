@@ -9,10 +9,10 @@ forked from ：https://github.com/kaiye/workflows-youdao
 
 所以你也可以自己随便修改，把整个工程压缩成一个zip包，然后修改扩展名为 .alfredworkflow，在电脑上双击 Alfred 就会识别并提示安装。
 
-工程里的 youdaotest.py 是用来测试有道API的，可以删除。youdao.py 才是真正的执行文件，里面有 appKey 和 secretKey （建议大家配置成自己的:(）
+工程里的 youdaotest.py 是用来测试有道API的，可以删除。youdao.py 才是真正的执行文件，里面有 appKey 和 secretKey （建议大家配置成自己的:( ）
 
 
-## 下面内容原内容相同：
+`下面内容原内容相同：`
 
 使用方法，选中需要翻译的文本，按两下 `command` 键即可。选中结果后，配合以下功能键可实现不同功能：
 
