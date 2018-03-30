@@ -1,4 +1,18 @@
-# kaiye/workflows-youdao
+
+# agehua/workflows-youdao
+
+使用有道翻译新版本api：[有道智云翻译 API 简介](http://ai.youdao.com/docs/doc-trans-api.s#p01)
+
+forked from ：https://github.com/kaiye/workflows-youdao
+
+工程内的 youdao.alfredworkflow，本质是一个压缩包。
+
+所以你也可以自己随便修改，把整个工程压缩成一个zip包，然后修改扩展名为.alfredworkflow，在电脑上双击Alfred就会识别并提示安装。
+
+工程里的 youdaotest.py 是 用来测试有道API的，可以删除。youdao.py才是真正的执行文件，里面有 appKey 和 secretKey （建议大家配置自己的）
+
+
+下面内容原内容相同：
 
 使用方法，选中需要翻译的文本，按两下 `command` 键即可。选中结果后，配合以下功能键可实现不同功能：
 
@@ -11,6 +25,7 @@
 ## 安装
 
 ### 1、[点击下载](https://github.com/kaiye/workflows-youdao/blob/master/youdao.alfredworkflow?raw=true)
+提示安装界面，Category 选择 Tools。
 
 ### 2、安装后设置双击快捷键
 

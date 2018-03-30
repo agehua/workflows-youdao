@@ -5,6 +5,8 @@ import urllib
 from workflow import Workflow, ICON_WEB, web
 import sys
 import json
+import random
+import md5
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -16,13 +18,23 @@ ICON_PHONETIC = 'icon_phonetic.png'
 ICON_BASIC = 'icon_basic.png'
 ICON_WEB = 'icon_web.png'
 
+appKey = '343297326eeabbd8'
+secretKey = 'wGL3AcgX2mx4v9us3226z3aWWtG8grVM'
+
 
 def get_web_data(query):
+    # print 'querystr为：'+str(query)
     query = urllib.quote(str(query))
-    url = 'http://fanyi.youdao.com/openapi.do?keyfrom=' + keyfrom + \
-        '&key=' + str(apikey) + \
-        '&type=data&doctype=json&version=1.1&q=' + query
-    return web.get(url).json()
+    salt = random.randint(1, 65536)
+    sign = appKey+query+str(salt)+secretKey
+    m1 = md5.new()
+    m1.update(sign)
+    sign = m1.hexdigest()
+    url = 'https://openapi.youdao.com/api?q=' + query + \
+        '&from=EN&to=zh_CHS&appKey='+appKey+'&salt='+str(salt)+'&sign='+sign
+    resp = web.get(url)
+    # print(resp.text.encode(resp.encoding).decode('utf-8'))
+    return json.loads(resp.text.encode(resp.encoding).decode('utf-8'))
 
 def get_phonetic_args(s):
     result = {}
@@ -44,12 +56,12 @@ def main(wf):
 
     s = get_web_data(query)
     extra_args.update(get_phonetic_args(s))
-    
-    if s.get("errorCode") == 0:
+
+    if s.get("errorCode") == '0':
         # '翻译结果'
         title = s["translation"]
         title = ''.join(title)
-        # url = u'http://dict.youdao.com/search?q=' + query
+        # url = u'https://dict.youdao.com/search?q=' + query
         tran = 'EtC'
         if not isinstance(query, unicode):
             query = query.decode('utf8')

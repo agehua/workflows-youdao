@@ -79,7 +79,7 @@
 		<array/>
 	</dict>
 	<key>createdby</key>
-	<string>kaiye</string>
+	<string>Conor</string>
 	<key>description</key>
 	<string>使用有道翻译你想知道的单词和语句</string>
 	<key>disabled</key>
@@ -95,7 +95,7 @@
 				<string>on alfred_script(q)
 	set qq to quoted form of q
 	set search_word to (do shell script "echo " &amp; qq &amp; " | cut -d '$' -f1")
-	do shell script "open 'http://dict.youdao.com/search?q=" &amp; search_word &amp; "'"
+	do shell script "open 'https://dict.youdao.com/search?q=" &amp; search_word &amp; "'"
 end alfred_script</string>
 				<key>cachescript</key>
 				<false/>
@@ -321,6 +321,8 @@ end alfred_script</string>
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string>https://github.com/kaiye/workflows-youdao</string>
+	<string>https://github.com/agehua/workflows-youdao</string>
+	<key>version</key>
+	<string>2.1.0</string>
 </dict>
 </plist>
